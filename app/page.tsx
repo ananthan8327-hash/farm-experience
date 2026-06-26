@@ -5,33 +5,33 @@ import { useState } from "react";
 
 const featuredAnimals = [
   {
-    title: "Healthy Cattle",
-    subtitle: "Grass-fed and pasture-raised",
-    price: "From RM3,200",
-    image: "/image/WhatsApp Image 2026-06-21 at 5.15.28 PM.jpeg",
-    bg: "bg-[#4a2e1f] text-white",
+    title: "Colorful Chicks",
+    subtitle: "Vibrant starter chicks, ready for delivery",
+    price: "RM5/chick",
+    image: "/image/WhatsApp Image 2026-06-21 at 4.57.14 PM.jpeg",
+    bg: "bg-[#2f6f2f] text-white",
   },
   {
-    title: "Premium Poultry",
-    subtitle: "Fresh chickens and eggs daily",
-    price: "From RM22/kg",
-    image: "/image/WhatsApp Image 2026-06-21 at 5.15.27 PM (2).jpeg",
+    title: "Layer Chickens",
+    subtitle: "Premium layers for reliable egg supply",
+    price: "RM22/kg",
+    image: "/image/WhatsApp Image 2026-06-21 at 5.15.29 PM (2).jpeg",
     bg: "bg-[#1f4d2e] text-white",
   },
   {
-    title: "Quality Goats",
-    subtitle: "Strong breeders, ready for farm life",
-    price: "From RM1,400",
-    image: "/image/WhatsApp Image 2026-06-21 at 5.15.30 PM.jpeg",
-    bg: "bg-[#b25d2f] text-white",
+    title: "Premium Ducks",
+    subtitle: "Healthy ducks, COD available",
+    price: "COD available",
+    image: "/image/WhatsApp Image 2026-06-21 at 5.15.29 PM (3).jpeg",
+    bg: "bg-[#35604b] text-white",
   },
 ];
 
 const galleryImages = [
-  "/image/WhatsApp Image 2026-06-21 at 5.14.29 PM.jpeg",
-  "/image/WhatsApp Image 2026-06-21 at 5.15.12 PM.jpeg",
-  "/image/WhatsApp Image 2026-06-21 at 5.15.26 PM.jpeg",
-  "/image/WhatsApp Image 2026-06-21 at 5.15.27 PM (1).jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 4.57.14 PM.jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.15.29 PM (3).jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.14.14 PM.jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.15.30 PM (1).jpeg",
 ];
 
 export default function Home() {
@@ -72,8 +72,8 @@ export default function Home() {
       </nav>
 
       <section id="home" className="relative min-h-screen overflow-hidden pt-24">
-        <div className="absolute inset-0 bg-[url('/image/WhatsApp Image 2026-06-21 at 5.15.29 PM.jpeg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-[url('/image/WhatsApp Image 2026-06-21 at 5.15.29 PM (2).jpeg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -81,7 +81,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="mb-6 inline-flex rounded-full bg-[#1f4d2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-[#dfe6db]"
           >
-            Premium Livestock • Farm Raised • Johor Bahru
+            Fresh Chickens & Ducks • COD Johor Bahru
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
@@ -89,23 +89,23 @@ export default function Home() {
             transition={{ duration: 1 }}
             className="max-w-4xl text-5xl font-black uppercase tracking-[-0.06em] leading-[0.98] md:text-7xl"
           >
-            Modern Farm Luxury for Poultry, Cattle and Goats
+            FRESH FARM PRODUCTS FROM JOHOR BAHRU
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.9 }}
-            className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-[#efe4d9] md:text-xl"
+            className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-[#e9e2d9] md:text-xl"
           >
-            Discover premium farm stock with daily freshness, COD delivery in Johor Bahru, and exceptional care from our family farm.
+            Only premium chickens and ducks, ready for fast delivery in Johor Bahru. Order direct and enjoy fresh farm quality.
           </motion.p>
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => scrollToSection("products")}
-            className="mt-12 inline-flex items-center justify-center rounded-full bg-[#e5893a] px-10 py-5 text-base font-bold uppercase tracking-[0.18em] text-white shadow-2xl shadow-black/20 transition hover:bg-[#c76d2a]"
+            onClick={() => scrollToSection("contact")}
+            className="mt-12 inline-flex items-center justify-center rounded-full bg-[#33a057] px-10 py-5 text-base font-bold uppercase tracking-[0.18em] text-white shadow-2xl shadow-black/20 transition hover:bg-[#2a8645]"
           >
-            Explore the herd
+            WhatsApp Order
           </motion.button>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function Home() {
               </p>
               <div className="mt-10 grid gap-6 sm:grid-cols-2">
                 {[
-                  { icon: "🐄", title: "Healthy Animals", detail: "Raised with care on wide-open pasture." },
+                  { icon: "�", title: "Healthy Flocks", detail: "Raised with care in clean farm housing." },
                   { icon: "🌿", title: "Trusted Quality", detail: "Strict selection for the best stock." },
                   { icon: "🚜", title: "Fresh Supply", detail: "Daily deliveries and ready stock." },
                   { icon: "🤝", title: "Local Support", detail: "Built for small farms and large buyers." },
@@ -195,8 +195,8 @@ export default function Home() {
             </div>
             <div className="overflow-hidden rounded-[2rem] bg-[#f1e1d6] p-6 shadow-2xl">
               <img
-                src="/image/WhatsApp Image 2026-06-21 at 5.14.14 PM.jpeg"
-                alt="Farm tour"
+                src="/image/WhatsApp Image 2026-06-21 at 5.15.30 PM (1).jpeg"
+                alt="Navin with ostrich"
                 className="h-full w-full min-h-[420px] object-cover rounded-[1.75rem]"
               />
             </div>
@@ -248,7 +248,7 @@ export default function Home() {
               </p>
               <div className="mt-10 space-y-4 rounded-[2rem] bg-[#fff5eb] p-8 ring-1 ring-[#e3d1c3]">
                 <p className="text-sm uppercase tracking-[0.18em] text-[#7a4f2f]">Phone</p>
-                <p className="text-2xl font-semibold text-[#3b2110]">011-3960-7215</p>
+                <p className="text-2xl font-semibold text-[#3b2110]">01139607215</p>
                 <p className="text-[#5a4536]">WhatsApp support available</p>
               </div>
             </div>
