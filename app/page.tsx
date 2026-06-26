@@ -16,36 +16,36 @@ const sectionData = [
     title: "Cattle Experience",
     description:
       "Luxury wellness for pasture-raised beef, curated for modern food enthusiasts.",
-    image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/WhatsApp Image 2026-06-21 at 4.57.14 PM (1).jpeg",
   },
   {
     id: "chicken",
     title: "Chicken Journey",
     description:
       "Soft feathered heritage, fresh every sunrise with premium care.",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/WhatsApp Image 2026-06-21 at 4.57.14 PM (2).jpeg",
   },
   {
     id: "goat",
     title: "Goat Elegance",
     description: "Minimal sophistication grounded in nature and pure quality.",
-    image: "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/WhatsApp Image 2026-06-21 at 4.57.14 PM (3).jpeg",
   },
   {
     id: "eggs",
     title: "Eggs Ritual",
     description: "Golden-yolk freshness delivered daily with a premium touch.",
-    image: "https://images.unsplash.com/photo-1492719097585-1cb3292a182b?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/WhatsApp Image 2026-06-21 at 5.15.29 PM.jpeg",
   },
 ];
 
 const gallery = [
-  "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1520759633400-1f79d4b7c5fc?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1598515213699-5c2b2f97add4?auto=format&fit=crop&w=900&q=80",
-  "https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=900&q=80",
+  "/image/WhatsApp Image 2026-06-21 at 4.57.14 PM.jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.15.27 PM (1).jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.15.27 PM (2).jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.15.27 PM (3).jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.15.28 PM (2).jpeg",
+  "/image/WhatsApp Image 2026-06-21 at 5.15.30 PM.jpeg",
 ];
 
 export default function Home() {
@@ -64,20 +64,16 @@ export default function Home() {
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") nextHub();
-      if (e.key === "ArrowLeft") prevHub();
+      if (e.key === "ArrowRight") {
+        setCurrentHubIndex((current) => (current + 1) % hubItems.length);
+      }
+      if (e.key === "ArrowLeft") {
+        setCurrentHubIndex((current) => (current - 1 + hubItems.length) % hubItems.length);
+      }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [currentHubIndex]);
-
-  useEffect(() => {
-    if (hubPaused) return;
-    const id = setInterval(() => {
-      nextHub();
-    }, 4000);
-    return () => clearInterval(id);
-  }, [currentHubIndex, hubPaused]);
+  }, []);
 
   // Parallax background movement for cinematic feel
   useEffect(() => {
@@ -112,15 +108,11 @@ export default function Home() {
   };
 
   const nextHub = () => {
-    const next = (currentHubIndex + 1) % hubItems.length;
-    setCurrentHubIndex(next);
-    scrollToSection(hubItems[next].id);
+    setCurrentHubIndex((current) => (current + 1) % hubItems.length);
   };
 
   const prevHub = () => {
-    const prev = (currentHubIndex - 1 + hubItems.length) % hubItems.length;
-    setCurrentHubIndex(prev);
-    scrollToSection(hubItems[prev].id);
+    setCurrentHubIndex((current) => (current - 1 + hubItems.length) % hubItems.length);
   };
 
   useEffect(() => {
@@ -128,10 +120,6 @@ export default function Home() {
     const t = setTimeout(() => setSignatureId(null), 3000);
     return () => clearTimeout(t);
   }, [signatureId]);
-
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-[#050b08] text-[#f8f5ef]">
@@ -159,7 +147,7 @@ export default function Home() {
       <section
         ref={heroRef}
         className="relative min-h-screen overflow-hidden px-6 py-10 sm:px-8 lg:px-14"
-        style={{ backgroundImage: "url('/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center 50%' }}
+        style={{ backgroundImage: "url('/image/WhatsApp Image 2026-06-21 at 4.57.14 PM (1).jpeg')", backgroundSize: 'cover', backgroundPosition: 'center 50%' }}
       >
         <div className="absolute inset-0 bg-black/36" />
         <div className="absolute inset-x-0 top-16 h-[24rem] bg-[radial-gradient(circle,_rgba(225,199,127,0.18),_transparent_55%)] blur-3xl" />
@@ -188,7 +176,8 @@ export default function Home() {
               </motion.p>
             </motion.div>
             <button
-              onClick={() => scrollToSection("farm-hub")}
+              type="button"
+              onClick={() => setCurrentHubIndex(0)}
               className="inline-flex smooth-interaction items-center justify-center rounded-full border border-[#e1c77f]/30 bg-[#e1c77f]/10 px-9 py-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#e1c77f] hover:border-[#e1c77f] hover:bg-[#e1c77f]/15"
             >
               Explore
@@ -247,7 +236,6 @@ export default function Home() {
                   onClick={() => {
                     setCurrentHubIndex(index);
                     setSignatureId(item.id);
-                    scrollToSection(item.id);
                   }}
                   className={`absolute flex h-20 w-20 items-center justify-center rounded-full border border-[#e1c77f]/20 bg-[#0b140f]/80 text-xl text-[#f8f5ef] shadow-[0_0_32px_rgba(225,199,127,0.18)] backdrop-blur-xl ${index === currentHubIndex ? 'scale-105 ring-2 ring-[#e1c77f]/20' : ''}`}
                   style={{ top: `${top}%`, left: `${left}%`, transform: "translate(-50%, -50%)" }}
@@ -494,13 +482,10 @@ export default function Home() {
             </p>
             <div className="mt-6 flex justify-center gap-4">
               <button
-                onClick={() => {
-                  scrollToSection(signatureId);
-                  setSignatureId(null);
-                }}
+                onClick={() => setSignatureId(null)}
                 className="rounded-full bg-[#e1c77f] px-6 py-3 font-semibold text-[#08110e]"
               >
-                Explore
+                Continue
               </button>
               <button
                 onClick={() => setSignatureId(null)}
