@@ -1,22 +1,9 @@
 @import "tailwindcss";
 
-:root {
-  --page-bg: #050b08;
-  --surface: rgba(12, 18, 15, 0.8);
-  --surface-strong: rgba(10, 14, 11, 0.95);
-  --text: #f8f5ef;
-  --muted: #889081;
-  --gold: #e1c77f;
-  --emerald: #6bb08b;
-  --glow: rgba(218, 180, 92, 0.18);
-  --cinematic-ease: cubic-bezier(.18,.9,.28,1);
-  --cinematic-duration: 0.9s;
-}
-
-@theme inline {
-  --color-background: var(--page-bg);
-  --color-foreground: var(--text);
-  --font-sans: var(--font-geist-sans);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -24,102 +11,12 @@ html {
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, rgba(51, 82, 65, 0.16), transparent 28%),
-    linear-gradient(180deg, #040804 0%, #050b08 38%, #050b08 100%);
-  color: var(--text);
-  font-family: var(--font-sans), system-ui, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
 }
 
 ::selection {
-  background: rgba(225, 199, 127, 0.35);
-  color: #fff;
-}
-
-body,
-button,
-a,input,
-textarea {
-  -webkit-tap-highlight-color: transparent;
-}
-
-.glass-card {
-  background: var(--surface);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.3);
-}
-
-.glow-ring {
-  box-shadow: 0 0 48px rgba(225, 199, 127, 0.16);
-}
-
-.fade-mask {
-  mask-image: linear-gradient(180deg, transparent 0%, black 15%, black 85%, transparent 100%);
-}
-
-/* Cinematic overlays */
-.vignette {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
-  mix-blend-mode: multiply;
-}
-
-.film-grain {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='g'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' /></filter><rect width='100%' height='100%' filter='url(%23g)' opacity='0.02' /></svg>");
-  opacity: 0.06;
-  mix-blend-mode: overlay;
-  transform: translateZ(0);
-}
-
-.cinematic-text {
-  text-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 40px rgba(225,199,127,0.06);
-  letter-spacing: 0.02em;
-}
-
-.hero-glow {
-  position: absolute;
-  inset: auto 0 20% 0;
-  height: 28vh;
-  filter: blur(80px);
-  background: radial-gradient(circle at 50% 50%, rgba(225,199,127,0.18), transparent 40%);
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-/* Subtle floating dust particles */
-.dust {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 8px 8px;
-  opacity: 0.06;
-  mix-blend-mode: screen;
-  animation: dustDrift 18s linear infinite;
-}
-
-@keyframes dustDrift {
-  from { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-18px) translateX(6px); }
-  to { transform: translateY(0) translateX(0); }
-}
-
-.smooth-interaction {
-  transition: transform var(--cinematic-duration) var(--cinematic-ease), box-shadow var(--cinematic-duration) var(--cinematic-ease), opacity var(--cinematic-duration) var(--cinematic-ease);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .film-grain, .dust { display: none; }
-  * { transition: none !important; animation: none !important; }
+  background-color: #e5e7eb;
+  color: #1f2937;
 }
