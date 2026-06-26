@@ -9,22 +9,25 @@ const featuredAnimals = [
     subtitle: "Grass-fed and pasture-raised",
     price: "From RM3,200",
     image: "/image/WhatsApp Image 2026-06-21 at 5.15.28 PM.jpeg",
+    bg: "bg-[#4a2e1f] text-white",
   },
   {
     title: "Premium Poultry",
     subtitle: "Fresh chickens and eggs daily",
     price: "From RM22/kg",
     image: "/image/WhatsApp Image 2026-06-21 at 5.15.27 PM (2).jpeg",
+    bg: "bg-[#1f4d2e] text-white",
   },
   {
     title: "Quality Goats",
     subtitle: "Strong breeders, ready for farm life",
     price: "From RM1,400",
     image: "/image/WhatsApp Image 2026-06-21 at 5.15.30 PM.jpeg",
+    bg: "bg-[#b25d2f] text-white",
   },
 ];
 
-const herdImages = [
+const galleryImages = [
   "/image/WhatsApp Image 2026-06-21 at 5.14.29 PM.jpeg",
   "/image/WhatsApp Image 2026-06-21 at 5.15.12 PM.jpeg",
   "/image/WhatsApp Image 2026-06-21 at 5.15.26 PM.jpeg",
@@ -68,46 +71,54 @@ export default function Home() {
         </div>
       </nav>
 
-      <section id="home" className="relative overflow-hidden pt-24 pb-24">
+      <section id="home" className="relative min-h-screen overflow-hidden pt-24">
         <div className="absolute inset-0 bg-[url('/image/WhatsApp Image 2026-06-21 at 5.15.29 PM.jpeg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/25 to-transparent" />
-        <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-6 lg:flex-row lg:items-end lg:px-10">
-          <div className="w-full max-w-2xl rounded-[2rem] border border-white/20 bg-white/90 p-8 shadow-2xl backdrop-blur-xl lg:p-12">
-            <span className="inline-flex rounded-full bg-[#8f5b3a] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white shadow-sm">
-              Free Template • Farm Design
-            </span>
-            <h1 className="mt-8 text-4xl font-black uppercase tracking-[-0.05em] text-[#3b1f0d] sm:text-5xl md:text-6xl">
-              Discover the Finest Livestock for Your Farm
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#5a4a43] sm:text-xl">
-              Discover top-tier livestock raised with care, precision, and the highest farm standards for your business or homestead.
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <button
-                type="button"
-                onClick={() => scrollToSection("products")}
-                className="inline-flex items-center justify-center rounded-full bg-[#8f5b3a] px-8 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-[#6d3f1a]"
-              >
-                Browse Livestock
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollToSection("contact")}
-                className="inline-flex items-center justify-center rounded-full border border-[#8f5b3a] bg-white px-8 py-4 text-base font-semibold text-[#8f5b3a] shadow-sm transition hover:bg-[#f7efe8]"
-              >
-                Contact Us
-              </button>
-            </div>
-          </div>
-          <div className="relative hidden overflow-hidden rounded-[2.5rem] border border-white/20 bg-white/90 shadow-2xl md:block">
-            <img
-              src="/image/WhatsApp Image 2026-06-21 at 5.15.27 PM.jpeg"
-              alt="Farm livestock"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute bottom-6 left-6 rounded-3xl bg-white/90 px-5 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-[#4b382f] shadow-lg">
-              Discover healthy livestock and farm-grown excellence
-            </div>
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6 text-center text-white">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-6 inline-flex rounded-full bg-[#1f4d2e] px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-[#dfe6db]"
+          >
+            Premium Livestock • Farm Raised • Johor Bahru
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="max-w-4xl text-5xl font-black uppercase tracking-[-0.06em] leading-[0.98] md:text-7xl"
+          >
+            Modern Farm Luxury for Poultry, Cattle and Goats
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.9 }}
+            className="mx-auto mt-8 max-w-3xl text-lg font-semibold leading-8 text-[#efe4d9] md:text-xl"
+          >
+            Discover premium farm stock with daily freshness, COD delivery in Johor Bahru, and exceptional care from our family farm.
+          </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => scrollToSection("products")}
+            className="mt-12 inline-flex items-center justify-center rounded-full bg-[#e5893a] px-10 py-5 text-base font-bold uppercase tracking-[0.18em] text-white shadow-2xl shadow-black/20 transition hover:bg-[#c76d2a]"
+          >
+            Explore the herd
+          </motion.button>
+        </div>
+      </section>
+
+      <section className="overflow-hidden bg-[#1f4d2e] py-4 text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-center px-6 text-sm font-semibold uppercase tracking-[0.2em] md:px-10">
+          <div className="marquee flex min-w-full items-center whitespace-nowrap text-base">
+            <span className="mx-6 inline-flex items-center gap-2">🐔 FRESH DAILY</span>
+            <span className="mx-6 inline-flex items-center gap-2">🥚 COD JOHOR BAHRU</span>
+            <span className="mx-6 inline-flex items-center gap-2">🦆 PREMIUM QUALITY</span>
+            <span className="mx-6 inline-flex items-center gap-2">🐓 FARM RAISED</span>
+            <span className="mx-6 inline-flex items-center gap-2">🐔 FRESH DAILY</span>
+            <span className="mx-6 inline-flex items-center gap-2">🥚 COD JOHOR BAHRU</span>
           </div>
         </div>
       </section>
@@ -125,27 +136,29 @@ export default function Home() {
             {featuredAnimals.map((product, idx) => (
               <motion.div
                 key={product.title}
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.12 }}
-                className="overflow-hidden rounded-[2rem] border border-[#d9c3b0] bg-white shadow-xl"
+                className={`overflow-hidden rounded-[2rem] shadow-2xl shadow-black/10 ${product.bg}`}
               >
-                <div className="relative h-80 overflow-hidden bg-[#f5ede7]">
-                  <img src={product.image} alt={product.title} className="h-full w-full object-cover transition duration-500 hover:scale-105" />
+                <div className="relative overflow-hidden rounded-[2rem] p-8">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="h-96 w-full object-cover transition duration-700 hover:scale-105"
+                  />
                 </div>
-                <div className="space-y-4 p-8">
-                  <div>
-                    <p className="text-sm uppercase tracking-[0.24em] text-[#a37555]">{product.subtitle}</p>
-                    <h3 className="mt-3 text-2xl font-semibold text-[#3b1f0d]">{product.title}</h3>
-                  </div>
-                  <p className="text-lg font-bold text-[#7a4f2f]">{product.price}</p>
+                <div className="space-y-4 px-8 pb-10 pt-6">
+                  <p className="text-sm uppercase tracking-[0.2em] text-[#e6d2bb]">{product.subtitle}</p>
+                  <h3 className="text-3xl font-black uppercase tracking-[-0.04em] text-white">{product.title}</h3>
+                  <p className="text-xl font-semibold text-[#fde4c7]">{product.price}</p>
                   <button
                     type="button"
                     onClick={() => scrollToSection("contact")}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-[#7a4f2f] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#5d3d28]"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-[#f2d0b4] px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-[#3b2110] transition hover:bg-[#eed5b8]"
                   >
-                    Order Now
+                    ORDER NOW
                   </button>
                 </div>
               </motion.div>
@@ -191,70 +204,78 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="gallery" className="bg-[#fcf4ec] px-6 py-24 md:px-10">
+      <section id="gallery" className="bg-[#f3e7de] px-6 py-24 md:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <p className="text-sm uppercase tracking-[0.28em] text-[#8f5b3a]">Meet the herd</p>
-            <h2 className="mt-4 text-4xl font-bold text-[#3b1f0d] sm:text-5xl">Our animals are cared for like family</h2>
+          <div className="mb-14 text-center">
+            <p className="text-sm uppercase tracking-[0.28em] text-[#4a2e1f]">Gallery</p>
+            <h2 className="mt-4 text-4xl font-black uppercase tracking-[-0.04em] text-[#3b1f0d] sm:text-5xl">
+              A premium farm showcase
+            </h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {herdImages.map((src, idx) => (
-              <button
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {galleryImages.map((src, idx) => (
+              <motion.div
                 key={src}
-                onClick={() => setActiveGalleryIndex(idx)}
-                type="button"
-                className="group overflow-hidden rounded-[2rem] shadow-xl transition hover:-translate-y-1"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className={`overflow-hidden rounded-[2rem] bg-white shadow-2xl ${idx % 3 === 0 ? "md:row-span-2" : ""}`}
+                style={{ minHeight: idx % 3 === 0 ? 520 : 320 }}
               >
-                <img src={src} alt={`Herd ${idx + 1}`} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
-                <div className="rounded-b-[2rem] bg-white px-5 py-6 text-left">
-                  <h3 className="text-lg font-semibold text-[#3b1f0d]">Farm Favorite</h3>
-                  <p className="mt-2 text-sm text-[#5a4a43]">Healthy, well-fed, and ready for transport.</p>
-                </div>
-              </button>
+                <img src={src} alt={`Gallery ${idx + 1}`} className="h-full w-full object-cover" />
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="bg-[#8f5b3a] px-6 py-24 text-white md:px-10">
+      <section id="contact" className="px-6 py-24 md:px-10">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+          >
             <div>
-              <p className="text-sm uppercase tracking-[0.28em] text-[#f7e3d4]">Get in touch</p>
-              <h2 className="mt-4 text-4xl font-bold sm:text-5xl">Ready to bring home premium livestock?</h2>
-              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#f5e5d7]">
-                Send us a message or WhatsApp us directly and we will help you choose the best animals for your farm.
+              <p className="text-sm uppercase tracking-[0.28em] text-[#4a2e1f]">Contact</p>
+              <h2 className="mt-4 text-4xl font-black uppercase tracking-[-0.04em] text-[#3b2110] sm:text-5xl">
+                Ready to reserve the best livestock?
+              </h2>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5a4536]">
+                Reach out now for farm support, pricing, and COD delivery across Johor Bahru.
               </p>
-              <div className="mt-10 space-y-4 rounded-[2rem] bg-white/10 p-8 ring-1 ring-white/10">
-                <p className="text-sm uppercase tracking-[0.28em] text-[#f7e3d4]">Phone</p>
-                <p className="text-2xl font-semibold text-white">011-3960-7215</p>
-                <p className="text-[#f5e5d7]">WhatsApp support available</p>
+              <div className="mt-10 space-y-4 rounded-[2rem] bg-[#fff5eb] p-8 ring-1 ring-[#e3d1c3]">
+                <p className="text-sm uppercase tracking-[0.18em] text-[#7a4f2f]">Phone</p>
+                <p className="text-2xl font-semibold text-[#3b2110]">011-3960-7215</p>
+                <p className="text-[#5a4536]">WhatsApp support available</p>
               </div>
             </div>
             <form className="rounded-[2rem] bg-white p-8 shadow-2xl">
               <div className="grid gap-6 md:grid-cols-2">
-                <label className="space-y-2 text-sm font-semibold text-[#3b1f0d]">
+                <label className="space-y-2 text-sm font-semibold text-[#3b2110]">
                   First Name
-                  <input type="text" className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b1f0d] outline-none transition focus:border-[#814c20]" />
+                  <input type="text" className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b2110] outline-none transition focus:border-[#8f5b3a]" />
                 </label>
-                <label className="space-y-2 text-sm font-semibold text-[#3b1f0d]">
+                <label className="space-y-2 text-sm font-semibold text-[#3b2110]">
                   Last Name
-                  <input type="text" className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b1f0d] outline-none transition focus:border-[#814c20]" />
+                  <input type="text" className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b2110] outline-none transition focus:border-[#8f5b3a]" />
                 </label>
               </div>
-              <label className="mt-6 space-y-2 text-sm font-semibold text-[#3b1f0d]">
+              <label className="mt-6 space-y-2 text-sm font-semibold text-[#3b2110]">
                 Email
-                <input type="email" className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b1f0d] outline-none transition focus:border-[#814c20]" />
+                <input type="email" className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b2110] outline-none transition focus:border-[#8f5b3a]" />
               </label>
-              <label className="mt-6 space-y-2 text-sm font-semibold text-[#3b1f0d]">
+              <label className="mt-6 space-y-2 text-sm font-semibold text-[#3b2110]">
                 Message
-                <textarea rows={5} className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b1f0d] outline-none transition focus:border-[#814c20]" />
+                <textarea rows={5} className="w-full rounded-3xl border border-[#d9c3b0] bg-[#fbf2ea] px-4 py-3 text-sm text-[#3b2110] outline-none transition focus:border-[#8f5b3a]" />
               </label>
-              <button type="submit" className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-[#3b1f0d] px-6 py-4 text-base font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-[#2d1810]">
-                Subscribe & Send
+              <button type="submit" className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-[#4a2e1f] px-6 py-4 text-base font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#3d271a]">
+                Send inquiry
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -269,7 +290,7 @@ export default function Home() {
           </button>
           <div className="relative h-[80vh] w-full max-w-4xl overflow-hidden rounded-3xl bg-white p-4">
             <img
-              src={herdImages[activeGalleryIndex]}
+              src={galleryImages[activeGalleryIndex]}
               alt="Lightbox"
               className="h-full w-full object-contain"
             />
